@@ -16,7 +16,7 @@
     "start": "ng serve meteorite --open --port 4201",
     "clean": "rm -rf dist/ node_modules/.cache",
     "build:meteor": "ng build meteor",
-    "build:meteorite": "ng build meteorite --base-href /meteorite/",
+    "build:meteorite": "ng build meteorite --base-href /",
     "prebuild:prod": "npm run clean && rm -rf dist/",
     "build:prod": "npm run build:meteor -- --prod && npm run build:meteorite -- --prod"
   },
