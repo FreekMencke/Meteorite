@@ -5,20 +5,12 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "CodeCometIO",
-      "type": "pwa-chrome",
-      "request": "launch",
-      "url": "http://localhost:4200",
-      "webRoot": "${workspaceFolder}/projects/code-comet-io",
-      "preLaunchTask": "npm: start:cc"
-    },
-    {
       "name": "Meteorite",
       "type": "pwa-chrome",
       "request": "launch",
       "url": "http://localhost:4201",
       "webRoot": "${workspaceFolder}/projects/meteorite",
-      "preLaunchTask": "npm: start:mit"
+      "preLaunchTask": "npm: start"
     }
   ]
 }
