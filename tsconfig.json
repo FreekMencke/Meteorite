@@ -12,9 +12,6 @@
     },
     {
       "path": "./projects/meteorite/tsconfig.app.json"
-    },
-    {
-      "path": "./projects/code-comet-io/tsconfig.app.json"
     }
   ]
 }

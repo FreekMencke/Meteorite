@@ -1,7 +1,8 @@
 {
-  "name": "meteor",
+  "name": "@code-comet/meteor",
   "version": "0.0.1",
   "description": "A simple Angular component library.",
+  "homepage": "https://meteorite.codecomet.io",
   "author": {
     "name": "Freek Mencke",
     "url": "https://codecomet.io"
