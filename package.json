@@ -1,6 +1,15 @@
 {
   "name": "meteorite",
   "version": "0.0.0",
+  "author": {
+    "name": "Freek Mencke",
+    "url": "https://codecomet.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FreekMencke/Meteorite.git",
+    "directory": "projects/meteorite"
+  },
   "scripts": {
     "start": "ng serve meteorite --open --port 4201",
     "clean": "rm -rf dist/ node_modules/.cache",

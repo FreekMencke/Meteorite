@@ -1,11 +1,21 @@
 {
   "name": "meteor",
   "version": "0.0.1",
+  "description": "A simple Angular component library.",
+  "author": {
+    "name": "Freek Mencke",
+    "url": "https://codecomet.io"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FreekMencke/Meteorite.git",
+    "directory": "projects/meteorite"
+  },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.1"
   },
   "peerDependencies": {
-    "@angular/common": "^10.0.4",
-    "@angular/core": "^10.0.4"
+    "@angular/common": "^10.0.9",
+    "@angular/core": "^10.0.9"
   }
 }
