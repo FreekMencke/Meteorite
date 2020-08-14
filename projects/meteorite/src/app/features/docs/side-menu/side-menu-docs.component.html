@@ -1,0 +1,38 @@
+<section>
+  <h2>Side Menu</h2>
+  <p>The side menu serves as a secondary navigation. Both the
+    <code class="language-html">&lt;mtr-side-menu-item-list&gt;</code>
+    and the <code class="language-html">&lt;mtr-side-menu-item&gt;</code>
+    support the same color modifiers as
+    <a routerLink="/docs/header" class="mtr-text--bold">the header</a> does.
+  </p>
+
+  <h3>Demo</h3>
+
+  <div class="bg-contrast">
+    <div class="color-bg--white">
+
+      <mtr-container [fullWidth]="true">
+        <mtr-side-menu>
+          <mtr-side-menu-item-list dark title="Side menu">
+            <mtr-side-menu-item primary>Container</mtr-side-menu-item>
+            <mtr-side-menu-item primary class="mtr-side-menu-item--active">Side menu</mtr-side-menu-item>
+          </mtr-side-menu-item-list>
+
+          <mtr-side-menu-content>
+            <mtr-container [center]="false">
+              <main>
+                <h2>Hello World!</h2>
+              </main>
+            </mtr-container>
+          </mtr-side-menu-content>
+
+        </mtr-side-menu>
+      </mtr-container>
+
+    </div>
+  </div>
+
+  <pre><code class="language-html">{{ codeExample }}</code></pre>
+
+</section>

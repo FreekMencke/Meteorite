@@ -1,0 +1,46 @@
+@import "../style/variables";
+@import "../style/mixins";
+
+@mixin bannerColors($color, $contrast) {
+  --banner-color: #{$color};
+  --banner-color--contrast: #{$contrast};
+}
+
+:host {
+  @include bannerColors($primary, chooseContrastColor($primary));
+
+  display: block;
+  padding: var(--spacing-xl) 0;
+
+  background-color: var(--banner-color);
+
+  .mtr-banner__content {
+    color: var(--banner-color--contrast);
+
+    &::ng-deep * {
+      color: var(--banner-color--contrast);
+    }
+  }
+  &.inverse,
+  &[inverse] {
+    @include bannerColors(chooseContrastColor($primary), $primary);
+  }
+}
+
+@each $name, $value in $scssColors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include bannerColors(
+      $value,
+      chooseContrastColor(chooseLightColor($value))
+    );
+  }
+
+  :host.#{"" + $name}.inverse,
+  :host[#{"" + $name}][inverse] {
+    @include bannerColors(
+      chooseContrastColor(chooseLightColor($value)),
+      $value
+    );
+  }
+}

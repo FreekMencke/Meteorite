@@ -1,0 +1,20 @@
+@import "./variables";
+
+:root {
+  --primary: #{$primary};
+  --secondary: #{$secondary};
+  --tertiary: #{$tertiary};
+  --dark: #{$dark};
+  --light: #{$light};
+  --black: #{$black};
+  --white: #{$white};
+}
+
+@each $name, $value in $colors {
+  .color-fg--#{"" + $name} {
+    color: $value !important;
+  }
+  .color-bg--#{"" + $name} {
+    background-color: $value !important;
+  }
+}

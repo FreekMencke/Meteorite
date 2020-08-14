@@ -1,0 +1,25 @@
+@import "../variables/colors";
+
+@function chooseContrastColor($bgColor) {
+  @if (lightness($bgColor) > 60) {
+    @return $black;
+  } @else {
+    @return $white;
+  }
+}
+
+@function chooseLightColor($bgColor) {
+  @if (lightness($bgColor) > 20) {
+    @return darken($bgColor, 8%);
+  } @else {
+    @return lighten($bgColor, 8%);
+  }
+}
+
+@function chooseLighterColor($bgColor) {
+  @if (lightness($bgColor) > 20) {
+    @return darken($bgColor, 12%);
+  } @else {
+    @return lighten($bgColor, 12%);
+  }
+}

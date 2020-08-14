@@ -1,0 +1,22 @@
+/*
+ * Spacing
+ */
+$spacing-xxs: 2px;
+$spacing-xs: 4px;
+$spacing-s: 8px;
+$spacing-m: 16px;
+$spacing-l: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+$spacing-none: 48px;
+
+$spacings: (
+  xxs: var(--spacing-xxs),
+  xs: var(--spacing-xs),
+  s: var(--spacing-s),
+  m: var(--spacing-m),
+  l: var(--spacing-l),
+  xl: var(--spacing-xl),
+  xxl: var(--spacing-xxl),
+  none: var(--spacing-non),
+);

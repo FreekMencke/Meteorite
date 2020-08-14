@@ -1,0 +1,33 @@
+<section>
+  <h2>Banner</h2>
+  <p>The <code class="language-html">&lt;mtr-banner&gt;</code> supports the same color modifiers as
+    <a routerLink="/docs/header" class="mtr-text--bold">the header</a> does.</p>
+
+  <h3>Demo</h3>
+
+  <div class="bg-contrast">
+    <div class="color-bg--white">
+      <mtr-header inverse>
+        <h1 mtr-header__branding>Meteor</h1>
+        <a mtr-header__nav-item>Home</a>
+        <a mtr-header__nav-item class="mtr-header__nav-item--active">Documentation</a>
+      </mtr-header>
+      <mtr-banner>
+        <mtr-container class="p--l text--center">
+          <h1 class="mb--xl">
+            Meteorite
+            <div class="mtr-subtitle">The Meteor styleguide</div>
+          </h1>
+          <mtr-btn outline white>Documentation</mtr-btn>
+        </mtr-container>
+      </mtr-banner>
+      <mtr-container class="p--l">
+        <h2>Howdy!</h2>
+        <p>How are you doing today?</p>
+      </mtr-container>
+    </div>
+  </div>
+
+  <pre><code class="language-html">{{ codeExample }}</code></pre>
+
+</section>

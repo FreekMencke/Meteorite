@@ -1,0 +1,21 @@
+mtr-btn {
+  margin: var(--spacing-s) var(--spacing-m);
+  margin-right: 0;
+}
+
+.two-columns {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin-top: calc(-1 * var(--spacing-m));
+  margin-right: calc(-1 * var(--spacing-s));
+  margin-bottom: var(--spacing-m);
+  margin-left: calc(-1 * var(--spacing-s));
+
+  & pre {
+    flex: 1 400px;
+    margin-right: var(--spacing-s);
+    margin-left: var(--spacing-s);
+    margin-bottom: 0 !important;
+  }
+}

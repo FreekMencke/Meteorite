@@ -1,0 +1,21 @@
+<mit-header></mit-header>
+
+<mtr-container [fullWidth]="true" [expandWithHeader]="true">
+  <mtr-side-menu>
+    <mtr-side-menu-item-list title="Components">
+      <mtr-side-menu-item *ngFor="let doc of availableDocs" [routerLink]="'/docs/' + doc.path"
+        routerLinkActive="mtr-side-menu-item--active">
+        {{ doc.text }}
+      </mtr-side-menu-item>
+    </mtr-side-menu-item-list>
+
+    <mtr-side-menu-content>
+      <mtr-container [center]="false" [expandHeight]="true">
+        <main>
+          <router-outlet></router-outlet>
+        </main>
+      </mtr-container>
+    </mtr-side-menu-content>
+
+  </mtr-side-menu>
+</mtr-container>

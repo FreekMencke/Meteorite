@@ -1,0 +1,26 @@
+<section>
+  <h2>Container</h2>
+  <p>The container is used to correctly place content on a page. It limits the width by default at
+    <strong>1280px</strong>, but this can be disabled. It also limits it's height so the <strong>mtr-header</strong>
+    fits in the page without making it scrollable, this can also be disabled.</p>
+
+  <h3>Demo</h3>
+
+  <div class="bg-contrast">
+    <div class="color-bg--white">
+      <mtr-header>
+        <h1 mtr-header__branding>Meteor</h1>
+        <a mtr-header__nav-item>Home</a>
+        <a mtr-header__nav-item class="mtr-header__nav-item--active">Documentation</a>
+      </mtr-header>
+      <mtr-container>
+        <main class="p--l">
+          <h2>Hello World!</h2>
+        </main>
+      </mtr-container>
+    </div>
+  </div>
+
+  <pre><code class="language-html">{{ codeExample }}</code></pre>
+
+</section>

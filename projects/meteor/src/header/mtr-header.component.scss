@@ -1,0 +1,200 @@
+@import '../style/variables';
+@import '../style/mixins';
+
+@mixin headerColors($color, $contrast, $light, $lighter) {
+  --header-color: #{$color};
+  --header-color--contrast: #{$contrast};
+  --header-color--light: #{$light};
+  --header-color--lighter: #{$lighter};
+}
+
+:host {
+  @include headerColors(
+    $primary,
+    chooseContrastColor($primary),
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+  --header-height: 64px;
+  --header-branding-width: 300px;
+
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+
+  height: var(--header-height);
+
+  background-color: var(--header-color);
+  color: var(--header-color--contrast);
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.mtr-header__branding,
+.mtr-header__branding::ng-deep > a {
+  display: block;
+  height: var(--header-height);
+  width: var(--header-branding-width);
+  text-decoration: none;
+
+  &::ng-deep > [mtr-header__branding]:not(a),
+  &::ng-deep > a[mtr-header__branding] > * {
+    height: var(--header-height);
+    line-height: calc(var(--header-height) - var(--spacing-m));
+    width: auto;
+
+    margin: 0;
+    padding: var(--spacing-s) var(--spacing-l);
+
+    color: var(--header-color--contrast);
+    text-decoration: none;
+  }
+}
+
+.mtr-header__nav-items {
+  display: flex;
+  flex-direction: row;
+
+  background-color: var(--header-color);
+
+  height: var(--header-height);
+
+  padding: 0 var(--spacing-s);
+
+  &::ng-deep > a[mtr-header__nav-item] {
+    display: block;
+
+    height: var(--header-height);
+    line-height: var(--header-height);
+
+    padding: 0 var(--spacing-s);
+
+    color: var(--header-color--contrast);
+
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+
+    &.mtr-header__nav-item--active {
+      border-bottom: 4px solid var(--header-color--contrast);
+    }
+    &:hover {
+      background-color: var(--header-color--light);
+    }
+    &:active {
+      background-color: var(--header-color--lighter);
+    }
+  }
+}
+
+.mtr-header__toggle {
+  display: none;
+  --button-color--light: var(--header-color--contrast);
+}
+
+@include tablet-and-down {
+  header {
+    justify-content: space-between;
+  }
+  .mtr-header__nav-items {
+    display: none;
+  }
+  .mtr-header__toggle {
+    display: flex;
+    font-size: 25px;
+  }
+  .mtr-header__nav-items--open {
+    display: flex;
+    position: absolute;
+    top: var(--header-height);
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
+    padding: 0;
+
+    z-index: -1;
+
+    &::ng-deep > a[mtr-header__nav-item] {
+      padding: 0 var(--spacing-l);
+
+      &.mtr-header__nav-item--active {
+        background-color: var(--header-color--contrast);
+        color: var(--header-color);
+        border-bottom: inherit;
+      }
+      &:hover {
+        background-color: var(--header-color--light);
+        color: var(--header-color--contrast);
+      }
+      &:active {
+        background-color: var(--header-color--lighter);
+        color: var(--header-color--contrast);
+      }
+    }
+  }
+}
+
+:host.inverse,
+:host[inverse] {
+  @include headerColors(
+    chooseContrastColor(chooseLightColor($primary)),
+    $primary,
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+
+  header {
+    .mtr-header__nav-items::ng-deep > a[mtr-header__nav-item] {
+      &:hover {
+        color: var(--header-color);
+      }
+      &:active {
+        color: var(--header-color);
+      }
+    }
+    .mtr-header__branding::ng-deep > [mtr-header__branding] {
+      color: var(--header-color--contrast);
+    }
+  }
+}
+
+@each $name, $value in $scssColors {
+  :host.#{'' + $name},
+  :host[#{"" + $name}] {
+    @include headerColors(
+      $value,
+      chooseContrastColor(chooseLightColor($value)),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+
+  :host.#{'' + $name}.inverse,
+  :host[#{"" + $name}][inverse] {
+    @include headerColors(
+      chooseContrastColor(chooseLightColor($value)),
+      $value,
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}
+
+// @include tablet-and-down {
+//   :host .mtr-header__nav-items--open {
+//     &::ng-deep > a[mtr-header__nav-item] {
+//       padding: 0 var(--spacing-l);
+
+//       &.mtr-header__nav-item--active {
+//         background-color: var(--header-color);
+//         color: var(--header-color--contrast);
+//       }
+//     }
+//   }
+// }

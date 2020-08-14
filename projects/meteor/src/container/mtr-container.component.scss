@@ -1,0 +1,27 @@
+:host {
+  --header-offset: 64px;
+
+  display: block;
+  position: relative;
+
+  width: 100%;
+  max-width: 1280px;
+}
+
+:host.mtr-container {
+  &--expand-height {
+    height: 100%;
+  }
+
+  &--expand-with-header {
+    height: calc(100vh - var(--header-offset));
+  }
+
+  &--full-width {
+    max-width: 100%;
+  }
+
+  &--center {
+    margin: auto;
+  }
+}

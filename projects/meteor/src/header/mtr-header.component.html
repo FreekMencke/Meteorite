@@ -1,0 +1,9 @@
+<header>
+  <div class="mtr-header__branding">
+    <ng-content select="[mtr-header__branding]"></ng-content>
+  </div>
+  <div class="mtr-header__nav-items" [ngClass]="{ 'mtr-header__nav-items--open': open }">
+    <ng-content select="[mtr-header__nav-item]"></ng-content>
+  </div>
+  <mtr-btn class="mtr-header__toggle" flat (click)="toggle()">&#9776;</mtr-btn>
+</header>

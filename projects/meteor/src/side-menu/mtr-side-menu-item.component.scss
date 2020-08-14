@@ -1,0 +1,111 @@
+@import "../style/variables";
+@import "../style/mixins";
+
+@mixin itemColors($color, $contrast, $light, $lighter) {
+  --side-menu-item-color: #{$color};
+  --side-menu-item-color--contrast: #{$contrast};
+  --side-menu-item-color--light: #{$light};
+  --side-menu-item-color--lighter: #{$lighter};
+}
+
+:host {
+  @include itemColors(
+    $primary,
+    chooseContrastColor($primary),
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+
+  .mtr-side-menu-item__content {
+    padding: var(--spacing-s) var(--spacing-l);
+    border-left: 4px solid transparent;
+  }
+
+  display: block;
+  cursor: pointer;
+
+  outline: none;
+  user-select: none;
+
+  background-color: var(--side-menu-item-color);
+  color: var(--side-menu-item-color--contrast);
+  &::ng-deep * {
+    color: var(--side-menu-item-color--contrast);
+  }
+
+  border-bottom: 1px solid var(--side-menu-item-color--lighter);
+  &:first-of-type {
+    border-top: 1px solid var(--side-menu-item-color--lighter);
+  }
+
+  &.mtr-side-menu-item--active {
+    background-color: var(--side-menu-item-color--light);
+    .mtr-side-menu-item__content {
+      border-left: 4px solid var(--side-menu-item-color--contrast);
+    }
+  }
+
+  &:hover {
+    background-color: var(--side-menu-item-color--light);
+  }
+  &:active {
+    background-color: var(--side-menu-item-color--lighter);
+  }
+}
+
+@each $name, $value in $scssColors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include itemColors(
+      $value,
+      chooseContrastColor($value),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}
+
+:host[inverse] {
+  @include itemColors(
+    chooseContrastColor($primary),
+    $primary,
+    chooseLightColor($primary),
+    chooseLighterColor($primary)
+  );
+
+  &.mtr-side-menu-item--active {
+    .mtr-side-menu-item__content {
+      color: var(--side-menu-item-color);
+      border-left: 4px solid var(--side-menu-item-color);
+    }
+  }
+
+  &:hover .mtr-side-menu-item__content {
+    color: var(--side-menu-item-color);
+  }
+  &:active .mtr-side-menu-item__content {
+    color: var(--side-menu-item-color);
+  }
+}
+
+@each $name, $value in $scssColors {
+  :host.#{"" + $name},
+  :host[#{"" + $name}] {
+    @include itemColors(
+      $value,
+      chooseContrastColor($value),
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+
+  :host.#{"" + $name}.inverse,
+  :host[#{"" + $name}][inverse] {
+    @include itemColors(
+      chooseContrastColor($value),
+      $value,
+      chooseLightColor($value),
+      chooseLighterColor($value)
+    );
+  }
+}

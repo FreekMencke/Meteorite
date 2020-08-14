@@ -1,0 +1,29 @@
+$primary: #7435da;
+$secondary: #1054a7;
+$tertiary: #0c7c46;
+
+$dark: #111111;
+$light: #f7f7f7;
+
+$black: #000000;
+$white: #ffffff;
+
+$colors: (
+  primary: var(--primary),
+  secondary: var(--secondary),
+  tertiary: var(--tertiary),
+  dark: var(--dark),
+  light: var(--light),
+  black: var(--black),
+  white: var(--white),
+);
+
+$scssColors: (
+  primary: $primary,
+  secondary: $secondary,
+  tertiary: $tertiary,
+  dark: $dark,
+  light: $light,
+  black: $black,
+  white: $white,
+);

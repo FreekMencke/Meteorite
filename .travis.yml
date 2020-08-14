@@ -1,0 +1,27 @@
+language: node_js
+node_js: "12"
+
+os: linux
+dist: trusty
+
+cache: npm
+
+branches:
+  only:
+    - master
+
+script:
+  - npm ci
+  - npx ng lint
+  - npm run build:prod
+
+deploy:
+  edge: true
+  provider: pages
+  strategy: git
+  token: $GITHUB_TOKEN
+  local_dir: dist/deploy
+  keep_history: true
+  fqdn: codecomet.io
+  on:
+    branch: master

@@ -1,0 +1,111 @@
+@import "./mixins/colors";
+@import "./variables/colors";
+@import "./variables/spacing";
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@300;400;600&display=swap");
+
+:root {
+  --font-color: #{$dark};
+
+  --link-color: #{$primary};
+  --link-color--hover: #{chooseLightColor($primary)};
+  --link-color--active: #{chooseLighterColor($primary)};
+}
+
+* {
+  color: var(--font-color);
+  font-family: "Lato", sans-serif;
+}
+
+.mtr-text--bold,
+.mtr-text--bold * {
+  font-weight: 700;
+  .mtr-subtitle {
+    font-weight: 500;
+  }
+}
+
+.mtr-text--large,
+.mtr-text--large * {
+  font-size: 110%;
+}
+
+.mtr-text--small,
+.mtr-text--small * {
+  font-size: 90%;
+}
+
+@mixin headingColors($color, $colorSub) {
+  --heading-color: #{$color};
+  --subheading-color: #{$colorSub};
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include headingColors($primary, $primary);
+
+  color: var(--heading-color);
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  letter-spacing: 1px;
+  line-height: 100%;
+
+  margin-bottom: var(--spacing-m);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .mtr-subtitle {
+    color: var(--subheading-color);
+    font-family: "Montserrat", sans-serif;
+    font-size: 70%;
+    font-weight: 300;
+  }
+}
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6 {
+  margin-top: var(--margin-l);
+}
+
+@each $name, $value in $scssColors {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    .#{"" + $name},
+    &[#{"" + $name}] {
+      @include headingColors($value, $value);
+    }
+  }
+}
+
+p:not(:last-child) {
+  margin-bottom: var(--spacing-m);
+}
+
+a,
+a:visited {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color--hover);
+    text-decoration: underline;
+  }
+  &:active {
+    color: var(--link-color--active);
+  }
+}

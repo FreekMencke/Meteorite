@@ -1,0 +1,7 @@
+@import './variables';
+
+:root {
+  --breakpoint-tablet: #{$breakpoint-tablet};
+  --breakpoint-desktop: #{$breakpoint-desktop};
+  --breakpoint-wide: #{$breakpoint-wide};
+}

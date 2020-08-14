@@ -1,0 +1,43 @@
+@import "meteor/src/style/global";
+
+@import "prismjs/themes/prism-tomorrow";
+
+// Custom prismjs highlighting (VS Code Dark+ like)
+pre {
+  margin-top: $spacing-m !important;
+  margin-bottom: $spacing-m !important;
+
+  .token {
+    .tag,
+    .attr-name,
+    .namespace,
+    .deleted {
+      color: #569cd6;
+    }
+    .attr-name {
+      color: #9cdcfe;
+      & + .token.attr-name {
+        display: inline-block;
+        margin-left: 2px;
+      }
+    }
+    .attr-value {
+      color: #ce9178;
+      .punctuation:not(:first-child) {
+        color: #ce9178;
+      }
+    }
+  }
+}
+
+.bg-contrast {
+  background: repeating-linear-gradient(
+    45deg,
+    darken(#dde, 4%),
+    darken(#dde, 4%) 10px,
+    darken(#dde, 8%) 10px,
+    darken(#dde, 8%) 20px
+  );
+  padding: $spacing-m;
+  margin-bottom: $spacing-m;
+}

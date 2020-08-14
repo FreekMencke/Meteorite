@@ -1,0 +1,46 @@
+@import "./variables/spacing";
+
+:root {
+  --spacing-xxs: #{$spacing-xxs};
+  --spacing-xs: #{$spacing-xs};
+  --spacing-s: #{$spacing-s};
+  --spacing-m: #{$spacing-m};
+  --spacing-l: #{$spacing-l};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-xxl: #{$spacing-xxl};
+  --spacing-none: #{$spacing-none};
+}
+
+@mixin spacing($property, $tag, $size) {
+  .#{$tag}--#{$size} {
+    #{$property}: map-get($spacings, $size) !important;
+  }
+  .#{$tag}t--#{$size} {
+    #{$property}-top: map-get($spacings, $size) !important;
+  }
+  .#{$tag}r--#{$size} {
+    #{$property}-right: map-get($spacings, $size) !important;
+  }
+  .#{$tag}b--#{$size} {
+    #{$property}-bottom: map-get($spacings, $size) !important;
+  }
+  .#{$tag}l--#{$size} {
+    #{$property}-left: map-get($spacings, $size) !important;
+  }
+  .#{$tag}x--#{$size} {
+    #{$property}-right: map-get($spacings, $size) !important;
+    #{$property}-left: map-get($spacings, $size) !important;
+  }
+  .#{$tag}y--#{$size} {
+    #{$property}-top: map-get($spacings, $size) !important;
+    #{$property}-bottom: map-get($spacings, $size) !important;
+  }
+}
+
+@each $name, $value in $spacings {
+  @include spacing(padding, p, $name);
+}
+
+@each $name, $value in $spacings {
+  @include spacing(margin, m, $name);
+}

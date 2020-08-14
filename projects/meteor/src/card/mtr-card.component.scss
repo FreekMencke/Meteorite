@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.mtr-card--content {
+  padding: var(--spacing-m);
+}
+
+.mtr-card--actions {
+  padding: var(--spacing-s);
+  padding-top: 0;
+
+  ::ng-deep mtr-btn + mtr-btn {
+    margin-left: var(--spacing-s);
+  }
+}

@@ -1,0 +1,17 @@
+:host {
+  display: grid;
+
+  height: 100%;
+  width: 100%;
+
+  grid-template-columns: 300px 1fr;
+
+  overflow-x: hidden;
+
+  transition: none;
+  -moz-transition: all 300ms; // https://caniuse.com/#feat=mdn-css_properties_grid-template-columns_animation
+}
+
+:host.mtr-side-menu--closed {
+  grid-template-columns: 50px 1fr;
+}
