@@ -1,6 +1,6 @@
 {
   "name": "@code-comet/meteor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A simple Angular component library.",
   "homepage": "https://meteorite.codecomet.io",
   "author": {
@@ -13,10 +13,10 @@
     "directory": "projects/meteorite"
   },
   "dependencies": {
-    "tslib": "^2.0.1"
+    "tslib": "^2.0.3"
   },
   "peerDependencies": {
-    "@angular/common": "^10.0.9",
-    "@angular/core": "^10.0.9"
+    "@angular/common": "^10.2.0",
+    "@angular/core": "^10.2.0"
   }
 }
