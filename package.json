@@ -12,13 +12,18 @@
     "url": "https://github.com/FreekMencke/Meteorite.git",
     "directory": "projects/meteorite"
   },
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist/meteor"
+  },
   "scripts": {
     "start": "ng serve meteorite --open --port 4201",
     "clean": "rm -rf dist/ node_modules/.cache",
     "build:meteor": "ng build meteor",
     "build:meteorite": "ng build meteorite --base-href /",
     "prebuild:prod": "npm run clean && rm -rf dist/",
-    "build:prod": "npm run build:meteor -- --prod && npm run build:meteorite -- --prod"
+    "build:prod": "npm run build:meteor:prod && npm run build:meteorite -- --prod",
+    "build:meteor:prod": "npm run build:meteor -- --prod"
   },
   "private": true,
   "dependencies": {
