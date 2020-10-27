@@ -75,7 +75,7 @@ p + h3,
 p + h4,
 p + h5,
 p + h6 {
-  margin-top: var(--margin-l);
+  margin-top: var(--spacing-l);
 }
 
 @each $name, $value in $scssColors {
